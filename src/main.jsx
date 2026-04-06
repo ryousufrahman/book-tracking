@@ -4,18 +4,31 @@ import './index.css'
 
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
-import Home from './Components/ROOT/Home.jsx';
-import Navbar from './Components/Shared/Navbar.jsx';
+import MainLayout from './Layout/MainLayout';
+import Home from './Components/Pages/Home';
+import Books from './Components/Pages/Books';
+
+
 
 const router =createBrowserRouter([
-  {
-    path: '/',
-    element : <Home></Home>
-  } ,
-  {
-    path: 'navbar',
-    element : <Navbar></Navbar>
-  }
+   {
+    path : '/',
+    element : <MainLayout></MainLayout> ,
+    children : [
+     {
+      index : true ,
+      element : <Home></Home>
+     },
+     {
+      path : '/books',
+      element : <Books></Books>
+     }
+
+
+    ]
+  
+   }
+ 
 
 
 ])
