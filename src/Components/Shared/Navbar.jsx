@@ -1,6 +1,17 @@
 import React from "react";
+import { Link, NavLink } from "react-router";
 
 const Navbar = () => {
+    const links = <>
+    
+           <li><NavLink to={'/'} className={({isActive}) => isActive? 'text-green-500 border border-green-500' : ''}>Home</NavLink></li>
+              <li><NavLink to={'/books'} className={({isActive}) => isActive? 'text-green-500 border border-green-500' : ''}>Books</NavLink></li>
+        <li><NavLink to={'/pages'} className={({isActive}) => isActive? 'text-green-500 border border-green-500' : ''}>Pages-to-Read</NavLink></li>
+    
+    </>
+
+        
+    
   return (
     <>
       <div className="bg-base-100 shadow-sm">
@@ -30,31 +41,17 @@ const Navbar = () => {
               </div>
               <ul
                 tabIndex="-1"
-                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow "
               >
-                <li>
-                  <a>Item 1</a>
-                </li>
-                <li>
-                  <a>Parent</a>
-                  <ul className="p-2">
-                    <li>
-                      <a>Submenu 1</a>
-                    </li>
-                    <li>
-                      <a>Submenu 2</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a>Item 3</a>
-                </li>
+               {links}
               </ul>
             </div>
             <h2 className=" text-2xl font-bold">Book Vibe</h2>
           </div>
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1"></ul>
+            <ul className="menu menu-horizontal px-1 ">
+                {links}
+            </ul>
           </div>
           <div className="navbar-end">
             <div className="flex gap-2">
