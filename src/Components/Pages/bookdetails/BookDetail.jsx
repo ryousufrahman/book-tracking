@@ -8,7 +8,12 @@ const BookDetail = () => {
 
     const bookcontext =useContext(BookContext)
     const { markRead ,
-        setMarkRead} =bookcontext
+        setMarkRead ,
+        markWish,
+        setMarkWish
+         } =bookcontext
+
+         
    const bookClicked = books.find(cbook => cbook.bookId == bookId);
    const handleMarkRead =(bookClicked)=>{
       const readAddedbook =   markRead.find(rb=> rb.bookId == bookClicked.bookId) ;
@@ -20,6 +25,21 @@ const BookDetail = () => {
       }
       console.log(markRead);
       
+
+
+   }
+   const handleMarkWish = (bookClicked)=>{
+     const existinread = markRead.find(rb=> rb.bookId == bookClicked.bookId)
+     const existinwish =markWish.find(wb=> wb.bookId == bookClicked.bookId)
+     if(existinread){
+        alert('exist in read')
+     }
+     else if(existinwish){
+        alert('already exist in wishlish')
+     }
+     else{
+        setMarkWish([...markWish , bookClicked ])
+     }
 
 
    }
@@ -44,7 +64,7 @@ const BookDetail = () => {
                      </div>
                      <div className='buttons flex gap-2'>
                         <button className='btn ' onClick={()=>handleMarkRead(bookClicked)}> Mark as Read</button>
-                        <button className='btn btn-accent'> Add to Wishlist</button>
+                        <button className='btn btn-accent' onClick={()=>handleMarkWish(bookClicked)}> Add to Wishlist</button>
 
                      </div>
 
