@@ -2,11 +2,18 @@ import React from 'react';
 
 const RenderRead = ({readBook}) => {
     return (
-        <div>
+        <>
+        
+         <div>
             <p>{readBook.bookName}</p>
             <img src={readBook.image} alt="" />
             
         </div>
+        
+        
+        </>
+        
+        
     );
 };
 
