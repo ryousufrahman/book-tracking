@@ -1,12 +1,28 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData, useParams } from 'react-router';
+import { BookContext } from '../../../GlobalContext';
 
 const BookDetail = () => {
     const {bookId} = useParams()
     const books = useLoaderData()
-    console.log(books , bookId);
 
-    const bookClicked = books.find(cbook => cbook.bookId == bookId)
+    const bookcontext =useContext(BookContext)
+    const { markRead ,
+        setMarkRead} =bookcontext
+   const bookClicked = books.find(cbook => cbook.bookId == bookId);
+   const handleMarkRead =(bookClicked)=>{
+      const readAddedbook =   markRead.find(rb=> rb.bookId == bookClicked.bookId) ;
+      if(readAddedbook){
+        alert('already added')
+      }
+     else {
+        setMarkRead([...markRead , bookClicked])
+      }
+      console.log(markRead);
+      
+
+
+   }
     
     
     return (
@@ -27,8 +43,8 @@ const BookDetail = () => {
 
                      </div>
                      <div className='buttons flex gap-2'>
-                        <button className='btn btn-ghost'>Read</button>
-                        <button className='btn btn-accent'>Wishlist</button>
+                        <button className='btn ' onClick={()=>handleMarkRead(bookClicked)}> Mark as Read</button>
+                        <button className='btn btn-accent'> Add to Wishlist</button>
 
                      </div>
 
