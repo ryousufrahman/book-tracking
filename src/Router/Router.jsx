@@ -19,8 +19,10 @@ import BookDetail from "../Components/Pages/bookdetails/BookDetail";
       element : <Books></Books>
      } ,
      {
-      path:'bookDetails/:id' ,
-      element : <BookDetail></BookDetail>
+      path:'bookDetails/:bookId' ,
+      element : <BookDetail></BookDetail>,
+      loader : ()=> fetch('/booksData.json')
+      
      }
 
 
