@@ -19,6 +19,12 @@ const RenderBook = ({book}) => {
                 <p className='text-gray-500'>By: {book.author}</p>
 
             </div>
+              <div className="divider"></div>
+              <div className='cart-footer flex justify-between'>
+                <p className='font-bold'>{book.category}</p>
+                <p className='font-semibold'>{book.rating}</p>
+
+              </div>
             
 
          </div>
