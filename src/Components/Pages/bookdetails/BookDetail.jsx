@@ -17,8 +17,14 @@ const BookDetail = () => {
    const bookClicked = books.find(cbook => cbook.bookId == bookId);
    const handleMarkRead =(bookClicked)=>{
       const readAddedbook =   markRead.find(rb=> rb.bookId == bookClicked.bookId) ;
-      if(readAddedbook){
-        alert('already added')
+    const existinwish = markWish.find(wb=> wb.bookId == bookClicked.bookId)
+      if(readAddedbook ){
+        alert('already added in read list')
+        return
+      }
+      else if(existinwish){
+        alert('added in wishlist')
+        return
       }
      else {
         setMarkRead([...markRead , bookClicked])
@@ -33,9 +39,11 @@ const BookDetail = () => {
      const existinwish =markWish.find(wb=> wb.bookId == bookClicked.bookId)
      if(existinread){
         alert('exist in read')
+        return
      }
      else if(existinwish){
         alert('already exist in wishlish')
+        return
      }
      else{
         setMarkWish([...markWish , bookClicked ])

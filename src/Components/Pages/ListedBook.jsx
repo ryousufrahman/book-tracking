@@ -20,7 +20,7 @@ const ListedBook = () => {
                  
 
             </div>
-            <div className='mt-8'>
+            <div className='mt-8 grid grid-cols-1 gap-3'>
                {
                
               toggleRead =='read' ? markRead.map((readBook , index) => <RenderRead key={index} readBook={readBook}></RenderRead> ) : null
@@ -31,10 +31,10 @@ const ListedBook = () => {
                 markRead.length ==0 && toggleRead =='read' ? <h2 className='font-bold text-3xl text-center'>Read List is empty</h2> : ''
                }
             </div> 
-            <div>
+            <div className='mt-8 grid grid-cols-1 gap-3'>
 
                 {
-                    toggleRead =='wish' ? markWish.map((wishbook , index) => <RenderWish wishBook={wishbook}></RenderWish> ): null
+                    toggleRead =='wish' ? markWish.map((wishbook , index) => <RenderWish key={index} wishBook={wishbook}></RenderWish> ): null
                 }
                 {
                     markWish.length ==0 && toggleRead =='wish' ? <h2 className='font-bold text-3xl text-center'>Wish List is empty</h2> : ''
