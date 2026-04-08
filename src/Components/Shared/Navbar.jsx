@@ -12,7 +12,7 @@ const Navbar = () => {
     
            <li><NavLink to={'/'} className={({isActive}) => isActive? 'text-green-500 border border-green-500' : ''}>Home</NavLink></li>
               <li><NavLink to={'/ListedBooks'} className={({isActive}) => isActive? 'text-green-500 border border-green-500' : ''}> Listed Books <span className={`bg-green-500 px-2 rounded-full text-white ${markRead.length ==0 ? 'hidden': 'block'} $`}>{markRead.length}</span> </NavLink></li>
-              <li><NavLink to={'/books'} className={({isActive}) => isActive? 'text-green-500 border border-green-500' : ''}>Books</NavLink></li>
+             
         <li><NavLink to={'/pages'} className={({isActive}) => isActive? 'text-green-500 border border-green-500' : ''}>Pages-to-Read</NavLink></li>
     
     </>
